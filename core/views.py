@@ -14,6 +14,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserProfileForm
 from django.contrib.auth import logout
+import os
 
 def register(request):
     if request.method == 'POST':
@@ -76,7 +77,7 @@ class PostListView(ListView):
         
         # Get city from GET parameters, default to London
         city = self.request.GET.get('city', 'London')
-        weather_api_key = '0aea754d701c1b79fc89497266f36c18'
+        weather_api_key = os.environ.get('WEATHER_API_KEY')
         
         if weather_api_key:
             try:
