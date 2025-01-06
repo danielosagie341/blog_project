@@ -37,6 +37,7 @@ ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 INSTALLED_APPS = [
     'core',
     'grappelli',
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,6 +49,20 @@ INSTALLED_APPS = [
     'pytest',
     'rest_framework',
 ]
+
+# Optional: Custom title for the admin
+GRAPPELLI_ADMIN_TITLE = "Admin Panel"
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Admin Panel",
+    "site_header": "Admin",
+    "welcome_sign": "Welcome to Admin Panel",
+    "search_model": "auth.User",
+    "topmenu_links": [
+        {"name": "Home", "url": "/", "permissions": ["auth.view_user"]},
+    ],
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
