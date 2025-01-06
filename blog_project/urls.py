@@ -6,6 +6,7 @@ from django.conf.urls.static import static
 from core import views
 
 urlpatterns = [
+    path('grappelli/', include('grappelli.urls')),
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
     path('', include('django.contrib.auth.urls')),  # Add this line for auth URLs
